@@ -1,0 +1,11 @@
+C:\Users\Administrator\Documents\reactTest\backend\backend\backend\bin\Debug\netcoreapp2.0\backend.deps.json
+C:\Users\Administrator\Documents\reactTest\backend\backend\backend\bin\Debug\netcoreapp2.0\backend.runtimeconfig.json
+C:\Users\Administrator\Documents\reactTest\backend\backend\backend\bin\Debug\netcoreapp2.0\backend.runtimeconfig.dev.json
+C:\Users\Administrator\Documents\reactTest\backend\backend\backend\bin\Debug\netcoreapp2.0\backend.dll
+C:\Users\Administrator\Documents\reactTest\backend\backend\backend\bin\Debug\netcoreapp2.0\backend.pdb
+C:\Users\Administrator\Documents\reactTest\backend\backend\backend\obj\Debug\netcoreapp2.0\backend.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\reactTest\backend\backend\backend\obj\Debug\netcoreapp2.0\backend.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\reactTest\backend\backend\backend\obj\Debug\netcoreapp2.0\backend.AssemblyInfoInputs.cache
+C:\Users\Administrator\Documents\reactTest\backend\backend\backend\obj\Debug\netcoreapp2.0\backend.AssemblyInfo.cs
+C:\Users\Administrator\Documents\reactTest\backend\backend\backend\obj\Debug\netcoreapp2.0\backend.dll
+C:\Users\Administrator\Documents\reactTest\backend\backend\backend\obj\Debug\netcoreapp2.0\backend.pdb
