@@ -1,10 +1,21 @@
 import { IApiClient } from './ApiClient';
 import * as React from 'react';
-import { Fabric } from 'office-ui-fabric-react/lib/Fabric';
+// import { Fabric } from 'office-ui-fabric-react/lib/Fabric';
 import { Pivot, PivotItem } from 'office-ui-fabric-react/lib/Pivot';
-import { PivotKeys } from './Common/Constants';
-import { Nav } from 'office-ui-fabric-react/lib/Nav';
 import './css/AppPage.css';
+import { Breadcrumb } from 'office-ui-fabric-react/lib/Breadcrumb';
+import { loadTheme } from 'office-ui-fabric-react/lib/Styling';
+import { BooksPivot } from './BooksPivot';
+import { TalksPivot } from './TalksPivot';
+import { autobind } from '@uifabric/utilities/lib';
+import { PivotKeys } from './Common/Constants';
+import { SearchBox } from 'office-ui-fabric-react/lib/SearchBox';
+
+loadTheme({
+    palette: {
+        'themePrimary': 'red'
+    }
+});
 
 export interface IAppPageProps {
     apiClient: IApiClient;
@@ -18,98 +29,64 @@ export class AppPage extends React.Component<IAppPageProps, IAppPageState> {
 
     constructor(props: IAppPageProps) {
         super(props);
-        this.state = { buttonText: 'TEST' };
+        this.state = { buttonText: 'TST' };
         this.buttonClicked = this.buttonClicked.bind(this);
     }
 
     public render() {
 
         return (
-            <Fabric>
-
-                <Pivot>
-                    {this.renderPivotBars()}
-                </Pivot>
-            </Fabric>
-        );
-    }
-
-    private renderPivotBars() {
-        return (
-            [
-                this.renderBooksPivot(),
-                this.renderTalksPivot()
-            ]
-        );
-    }
-
-    private renderBooksPivot() {
-        return (
-            <PivotItem key={PivotKeys.Books} linkText={PivotKeys.Books}>
-                {this.renderBooksContent()}
-            </PivotItem>
-        );
-    }
-
-    private renderTalksPivot() {
-        return (
-            <PivotItem key={PivotKeys.Talks} linkText={PivotKeys.Talks}>
-                {this.renderBooksContent()}
-            </PivotItem>
-        );
-    }
-
-    private renderBooksContent() {
-        return (
-            <div className="ms-NavExample-LeftPane">
-                <Nav
-                    groups={
-                        [
-                            {
-                                links:
-                                    [
-                                        {
-                                            name: 'Home',
-                                            url: 'http://example.com',
-                                            links: [{
-                                                name: 'Activity',
-                                                url: 'http://msn.com',
-                                                key: 'key1'
-                                            },
-                                            {
-                                                name: 'News',
-                                                url: 'http://msn.com',
-                                                key: 'key2'
-                                            }],
-                                            isExpanded: true
-                                        },
-                                        { name: 'Documents', url: 'http://example.com', key: 'key3', isExpanded: true },
-                                        { name: 'Pages', url: 'http://msn.com', key: 'key4' },
-                                        { name: 'Notebook', url: 'http://msn.com', key: 'key5' },
-                                        { name: 'Long Name Test for ellipse', url: 'http://msn.com', key: 'key6' },
-                                        {
-                                            name: 'Edit',
-                                            url: 'http://cnn.com',
-                                            icon: 'Edit',
-                                            key: 'key8'
-                                        },
-                                        {
-                                            name: 'Delete',
-                                            url: 'http://cnn.com',
-                                            iconProps: { iconName: 'Delete' },
-                                            key: 'key9'
-                                        }
-                                    ]
-                            }
-                        ]
-                    }
-                    expandedStateText={'expanded'}
-                    collapsedStateText={'collapsed'}
-                    selectedKey={'key3'}
-                />
+            <div className="container">
+                <div className="grid breadcrumb">
+                    <Breadcrumb
+                        items={[
+                            { text: 'Vedanta Reference', 'key': 'vedantaReference', isCurrentItem: true }
+                        ]}
+                        ariaLabel={'Website breadcrumb'}
+                        onReduceData={this._returnUndefined}
+                        className="breadcrumb"
+                    />
+                </div>
+                {/* <div className="pivot-separator" /> */}
+                <div className="grid searchBox">
+                    <div className="item">
+                        <SearchBox
+                            placeholder="Search"
+                            onFocus={() => console.log('onFocus called')}
+                            onBlur={() => console.log('onBlur called')}
+                            underlined={true}
+                        />
+                    </div>
+                </div>
+                <div className="grid pivots">
+                    <Pivot>
+                        {this.renderPivotBars()}
+                    </Pivot>
+                </div>
             </div>
         );
+    }
 
+    @autobind
+    private _returnUndefined(): undefined {
+        return undefined;
+    }
+
+    private renderPivotBars(): JSX.Element[] {
+        return (
+            [
+                (
+                    <PivotItem key={PivotKeys.Books} linkText={PivotKeys.Books}>
+                        {<BooksPivot />}
+                    </PivotItem>
+                ),
+                (
+                    <PivotItem key={PivotKeys.Talks} linkText={PivotKeys.Talks}>
+                        {<TalksPivot />}
+                    </PivotItem>
+                )
+            ]
+        );
     }
 
     private buttonClicked() {

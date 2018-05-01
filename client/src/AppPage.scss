@@ -5,3 +5,92 @@
     border: 1px solid #EEE;
     overflow-y: auto;
 }
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 3fr;
+    grid-template-rows: 1fr 9fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 15px;
+}
+
+.grid {
+    padding: 25px;
+    font-size: 3rem;
+}
+
+.header {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+}
+
+.breadcrumb {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.searchBox {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    .item {
+        grid-row: 2/3;
+        grid-column: 1/2;
+    }
+}
+
+
+.pivots {
+    grid-column: 1 / 4;
+    grid-row: 2 / 9;
+}
+// .page-header {
+//     flex: 1;
+//     flex-direction: 'row'
+// }
+
+// .breadcrumb {
+//     width: 50;
+//     height: 50;
+// }
+
+// .container {
+//     margin: auto;
+//     padding: 10px;
+// }
+
+// .breadcrumb {
+//     float: left;
+//     width: 30%;
+// }
+
+.ms-Breadcrumb-item {
+    display: flex;
+}
+
+.ms-FocusZone .ms-Pivot {
+    border-bottom: 1px solid  #c8c8c8;
+}
+
+// .pivot-separator {
+//     width: 0.2%;
+//     height: 24px;
+//     background-color: #c8c8c8;
+//     margin-top: 23px;
+//     display: inline-block;
+// }
+
+// .search-box {
+//     margin-top: 23px;
+//     float: right;
+// }
+
+// .pivot-bar {
+//     margin-top: 30px;
+// }
+
+// .ms-Pivot {
+//     margin-left: 60%;
+// }
