@@ -6,13 +6,13 @@ export class BooksPivot extends React.Component {
 
     public render() {
         return (
-            <div className="grid">
-                <div className="grid nav ms-NavExample-LeftPane">
+            <div>
+                <div className="leftNav">
                     <Nav
                         groups={this.getNavGroups()}
                     />
                 </div>
-                <div className="grid pane">
+                <div className="rightPane">
                 This is the description of verse and verse itself. What's it look like
                 </div>
             </div>

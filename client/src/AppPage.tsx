@@ -36,29 +36,24 @@ export class AppPage extends React.Component<IAppPageProps, IAppPageState> {
     public render() {
 
         return (
-            <div className="container">
-                <div className="grid breadcrumb">
-                    <Breadcrumb
-                        items={[
-                            { text: 'Vedanta Reference', 'key': 'vedantaReference', isCurrentItem: true }
-                        ]}
-                        ariaLabel={'Website breadcrumb'}
-                        onReduceData={this._returnUndefined}
-                        className="breadcrumb"
+            <div className="wrapper">
+                <Breadcrumb
+                    items={[
+                        { text: 'Vedanta Reference', 'key': 'vedantaReference', isCurrentItem: true }
+                    ]}
+                    ariaLabel={'Website breadcrumb'}
+                    onReduceData={this._returnUndefined}
+                    className="breadcrumb"
+                />
+                {/* {<div className="pivot-separator" />} */}
+                    <SearchBox
+                        placeholder="Search"
+                        onFocus={() => console.log('onFocus called')}
+                        onBlur={() => console.log('onBlur called')}
+                        underlined={true}
+                        className="searchBox"
                     />
-                </div>
-                {/* <div className="pivot-separator" /> */}
-                <div className="grid searchBox">
-                    <div className="item">
-                        <SearchBox
-                            placeholder="Search"
-                            onFocus={() => console.log('onFocus called')}
-                            onBlur={() => console.log('onBlur called')}
-                            underlined={true}
-                        />
-                    </div>
-                </div>
-                <div className="grid pivots">
+                <div className="pivots">
                     <Pivot>
                         {this.renderPivotBars()}
                     </Pivot>

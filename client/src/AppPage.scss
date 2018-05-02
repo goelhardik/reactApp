@@ -1,14 +1,11 @@
-.ms-NavExample-LeftPane {
-    box-sizing: border-box;
-    border: 1px solid #EEE;
+html, 
+body {
+    height: 100%;
 }
 
-.container {
-    display: grid;
-    grid-template-columns: 1fr 2fr 3fr;
-    grid-template-rows: 1fr 1fr 8fr;
-    grid-column-gap: 10px;
-    grid-row-gap: 15px;
+.wrapper {
+    margin: 10px 10px 10px;
+    height: 100%;
 }
 
 .grid {
@@ -16,45 +13,38 @@
     font-size: 3rem;
 }
 
-.header {
-    grid-column: 1 / 4;
-    grid-row: 1 / 2;
-}
-
 .breadcrumb {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    float: left;
+    width: 50%;
+    margin-top: 0px;
 }
 
 .searchBox {
-    display: grid;
-    grid-template-rows: 1fr 2fr;
-    grid-column: 3 / 4;
-    grid-row: 1 / 2;
-    .item {
-        grid-row: 2/3;
-        grid-column: 1/2;
-    }
+    margin: 23px 0 1px;
+    float: right;
+    width: 30%;
 }
 
 .pivots {
-    grid-column: 1 / 4;
-    grid-row: 2 / 9;
-    display: grid;
-    grid-template-columns: 1fr 9fr;
-    grid-template-rows: 2fr 2fr 2fr;
+    clear: left;
+    width: 100%;
+    height: 100%;
 }
 
-.nav {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
+.leftNav {
+    box-sizing: border-box;
+    border-right: 1px solid #EEE;
+    width: 10%;
+    height: auto;
+    float: left;
 }
 
-.pane {
+.rightPane {
     font-size: medium;
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
+    margin-top: 20px;
+    margin-left: 10%;
+    width: 90%;
 }
 // .page-header {
 //     flex: 1;
