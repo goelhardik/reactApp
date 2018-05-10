@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using backend.Models;
+using Newtonsoft.Json.Linq;
 
 namespace backend.Controllers
 {
@@ -12,8 +13,10 @@ namespace backend.Controllers
     public class HomeController : Controller
     {
         [HttpGet]
-        public ButtonModel Get()
+        public async Task<ButtonModel> Get()
         {
+            var button = new ButtonModel { Value = "Testing" };
+            await DocumentDBRepository.CreateDocument(JObject.FromObject(button));
             return new ButtonModel { Value = "Testing" };
         }
     }
