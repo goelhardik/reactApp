@@ -10,5 +10,16 @@ namespace backend.Models
 
         [JsonProperty(PropertyName = "value")]
         public string Value { get; set; }
+
+        public static ButtonModel FromGraphDoc(GraphDoc doc)
+        {
+            var res = new ButtonModel 
+            {
+                Id = doc.Id,
+                Value = doc.Value
+            };
+
+            return res;
+        }
     }
 }

@@ -17,7 +17,9 @@ namespace backend.Controllers
         {
             var button = new ButtonModel { Value = "Testing" };
             await DocumentDBRepository.CreateDocument(JObject.FromObject(button));
-            return new ButtonModel { Value = "Testing" };
+            var docs = DocumentDBRepository.ReadDocument();
+            var result = ButtonModel.FromGraphDoc(docs.First());
+            return result;
         }
     }
 }

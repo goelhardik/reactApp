@@ -9,6 +9,7 @@ using Microsoft.Azure.Documents.Client;
 using Newtonsoft.Json;
 using backend.Models;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 
 namespace backend
 {
@@ -31,6 +32,29 @@ namespace backend
         public static async Task CreateDocument(JObject doc)
         {
             await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(DatabaseName, CollectionName), doc);
+        }
+
+        public static IEnumerable<GraphDoc> ReadDocument()
+        {
+            FeedOptions queryOptions = new FeedOptions { MaxItemCount = -1 };
+
+            IQueryable<GraphDoc> query = client.CreateDocumentQuery<GraphDoc>(
+                UriFactory.CreateDocumentCollectionUri(DatabaseName, CollectionName),
+                queryOptions)
+                .Where(d => d.VerseId == "3.4");
+
+            var docs = query.ToList();
+            return docs;
+        }
+
+        private static Func<JToken, GraphDoc> FromGraphDoc()
+        {
+            Func<JToken, GraphDoc> selectDoc = d => new GraphDoc
+            {
+                Id = d["id"].ToString(),
+                Value = d["value"].ToString()
+            };
+            return selectDoc;
         }
     }
 }
