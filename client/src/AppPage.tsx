@@ -72,7 +72,11 @@ export class AppPage extends React.Component<IAppPageProps, IAppPageState> {
             [
                 (
                     <PivotItem key={PivotKeys.Books} linkText={PivotKeys.Books}>
-                        {<BooksPivot />}
+                        {
+                        <BooksPivot 
+                            apiClient={this.props.apiClient} 
+                        />
+                        }
                     </PivotItem>
                 ),
                 (
@@ -87,7 +91,7 @@ export class AppPage extends React.Component<IAppPageProps, IAppPageState> {
     private buttonClicked() {
         this.props.apiClient.getQuestions().then((response) => {
             this.setState({
-                buttonText: response.value
+                buttonText: response.sanskrit
             });
         });
     }

@@ -1,8 +1,22 @@
 import * as React from 'react';
 import { Nav } from 'office-ui-fabric-react/lib/Nav';
 import { BookNames } from './Common/Constants';
+import { IApiClient } from './ApiClient';
 
-export class BooksPivot extends React.Component {
+export interface IBooksPivotProps {
+    apiClient: IApiClient;
+}
+
+export interface IBooksPivotState {
+    content: string;
+}
+
+export class BooksPivot extends React.Component<IBooksPivotProps, IBooksPivotState> {
+
+    constructor(props: IBooksPivotProps) {
+        super(props);
+        this.state = { content: '' };
+    }
 
     public render() {
         return (
@@ -13,12 +27,7 @@ export class BooksPivot extends React.Component {
                     />
                 </div>
                 <div className="rightPane">
-                कर्मेन्द्रियाणि संयम्य य आस्ते मनसा स्मरन् |
-इन्द्रियार्थान्विमूढात्मा मिथ्याचार: स उच्यते || 6||
-
-                    धृतराष्ट्र उवाच |
-                    धर्मक्षेत्रे कुरुक्षेत्रे समवेता युयुत्सवः |
-                    मामकाः पाण्डवाश्चैव किमकुर्वत सञ्जय ||1||
+                    {this.state.content}
                 </div>
             </div>
         );
@@ -36,7 +45,10 @@ export class BooksPivot extends React.Component {
                             {
                                 name: 'Child link',
                                 key: 'Child link 1',
-                                url: ''
+                                url: '',
+                                onClick: () => {this.props.apiClient.getQuestions().then((response) => this.setState({
+                                    content: response.sanskrit
+                                })); }
                             },
                             {
                                 name: 'Child link',

@@ -1,9 +1,10 @@
-export interface IButtonResponse {
-    value: string;
+export interface IGitaResponse {
+    id: string;
+    sanskrit: string;
 }
 
 export interface IApiClient {
-    getQuestions(): Promise<IButtonResponse>;
+    getQuestions(): Promise<IGitaResponse>;
 }
     
 export class ApiClient {
@@ -14,8 +15,8 @@ export class ApiClient {
         this.getQuestions = this.getQuestions.bind(this);
     }
 
-    public getQuestions(): Promise<IButtonResponse> {
-        return this.makeRequest(this.baseUrl + 'home', 'GET');
+    public getQuestions(): Promise<IGitaResponse> {
+        return this.makeRequest(this.baseUrl + 'gita/3.4', 'GET');
     }
 
     private makeRequest(url: string, methodType: string) {
