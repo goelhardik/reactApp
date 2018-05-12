@@ -15,8 +15,7 @@ namespace backend.Models
         {
             var res = new ButtonModel 
             {
-                Id = doc.Id,
-                Value = doc.Value
+                Id = doc.Id
             };
 
             return res;

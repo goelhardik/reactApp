@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace backend.Models
 {
-    public class GraphDoc
+    public class Gita
     {
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
@@ -16,8 +16,17 @@ namespace backend.Models
 
         [JsonProperty(PropertyName = "verseId")]
         public string VerseId { get; set; }
-        
-        [JsonProperty(PropertyName = "youTubeLink")]
-        public string YouTubeLink { get; set; }
+
+        public static Gita FromGraphDoc(GraphDoc doc)
+        {
+            var res = new Gita 
+            {
+                Id = doc.Id,
+                Sanskrit = doc.Sanskrit,
+                VerseId = doc.VerseId
+            };
+
+            return res;
+        }
     }
 }

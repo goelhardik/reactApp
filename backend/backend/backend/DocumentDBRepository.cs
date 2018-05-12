@@ -46,15 +46,5 @@ namespace backend
             var docs = query.ToList();
             return docs;
         }
-
-        private static Func<JToken, GraphDoc> FromGraphDoc()
-        {
-            Func<JToken, GraphDoc> selectDoc = d => new GraphDoc
-            {
-                Id = d["id"].ToString(),
-                Value = d["value"].ToString()
-            };
-            return selectDoc;
-        }
     }
 }
