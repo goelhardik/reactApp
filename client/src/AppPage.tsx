@@ -5,7 +5,7 @@ import { Pivot, PivotItem } from 'office-ui-fabric-react/lib/Pivot';
 import './css/AppPage.css';
 import { Breadcrumb } from 'office-ui-fabric-react/lib/Breadcrumb';
 import { loadTheme } from 'office-ui-fabric-react/lib/Styling';
-import { BooksPivot } from './BooksPivot';
+import { BooksPivot } from './Books/BooksPivot';
 import { TalksPivot } from './TalksPivot';
 import { autobind } from '@uifabric/utilities/lib';
 import { PivotKeys } from './Common/Constants';
@@ -13,7 +13,7 @@ import { SearchBox } from 'office-ui-fabric-react/lib/SearchBox';
 
 loadTheme({
     palette: {
-        'themePrimary': 'red'
+        'themePrimary': '#0078d4'
     }
 });
 

@@ -35,16 +35,35 @@ body {
 .leftNav {
     box-sizing: border-box;
     border-right: 1px solid #EEE;
-    width: 10%;
+    width: 20%;
     height: auto;
     float: left;
+}
+
+.verseSelector {
+    padding: 5px 5px 5px 5px;
+    height: auto;
+    width: auto;
+    display: inline-block;
+    box-sizing: border-box;
+    border-right: 1px solid #EEE;
+    border-top: 1px solid #EEE;
+    border-bottom: 1px solid #EEE;
+    background-color: #f4f4f4;
+}
+
+.verseButton {
+    min-width: 40px;
+    height: auto;
+    padding: 2px 2px 2px 2px;
+    margin: 2px 2px 2px 2px;
 }
 
 .rightPane {
     font-size: medium;
     margin-top: 20px;
-    margin-left: 10%;
-    width: 90%;
+    margin-left: 55%;
+    width: 50%;
 }
 // .page-header {
 //     flex: 1;

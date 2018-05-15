@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@types/prop-types": "^15.5.2",
+    "autobind-decorator": "^2.1.0",
     "node-sass-chokidar": "^1.2.2",
     "npm-run-all": "^4.1.2",
     "office-ui-fabric-react": "^5.80.0",
